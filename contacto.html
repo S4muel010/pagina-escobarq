@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - EscobARQ</title>
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+    <div class="contenedor-principal">
+        <header>
+            <div class="logo">
+                <div class="logoAncho">
+                    <img src="img/logo.png" alt="Logo de EscobARQ" class="logoDimension">
+                </div>
+                <div class="bannerAncho">
+                    <h1 style="margin: 0;">EscobARQ Soluciones Integrales</h1>
+                    <nav>
+                        <ul style="margin: 0; padding: 0; list-style: none;">
+                            <li style="display: inline; margin-right: 15px;"><a href="index.html">Inicio</a></li>
+                            <li style="display: inline; margin-right: 15px;"><a href="servicios.html">Servicios</a></li>
+                            <li style="display: inline; margin-right: 15px;"><a href="proyectos.html">Proyectos</a></li>
+                            <li style="display: inline; margin-right: 15px;"><a href="pqrs.html">PQRS</a></li>
+                            <li style="display: inline; margin-right: 15px;"><a href="contacto.html">Contacto</a></li>
+                            <li style="display: inline; margin-right: 15px;"><a href="gestor.html">Login</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="banner">
+                <h2>Contáctanos</h2>
+                <p>En EscobARQ estamos listos para ayudarte con tu proyecto.</p>
+            </section>
+
+            <section class="formulario-contacto">
+                <form id="formContacto">
+                    <label for="nombre">Nombre completo:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+
+                    <label for="correo">Correo electrónico:</label>
+                    <input type="email" id="correo" name="correo" required>
+
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono">
+
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" required></textarea>
+
+                    <button type="submit">Enviar mensaje</button>
+                </form>
+                <div id="respuesta" style="margin-top: 10px; color: green;"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Contacto: samitolrmc@gmail.com | WhatsApp: 3122328116 | Villavicencio - Meta</p>
+            <p>&copy; 2025 EscobARQ | Todos los derechos reservados</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById("formContacto").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById("nombre").value.trim();
+            const correo = document.getElementById("correo").value.trim();
+            const mensaje = document.getElementById("mensaje").value.trim();
+
+            if (nombre && correo && mensaje) {
+                document.getElementById("respuesta").textContent = "¡Gracias por contactarnos! Te responderemos pronto.";
+                this.reset();
+            } else {
+                document.getElementById("respuesta").textContent = "Por favor completa todos los campos obligatorios.";
+                document.getElementById("respuesta").style.color = "red";
+            }
+        });
+    </script>
+</body>
+
+</html>
