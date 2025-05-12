@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EscobARQ</title>
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+    <div class="contenedor-principal">
+                <header>
+            <div class="logo">
+                <div class="logoAncho">
+                    <img src="img/logo.png" alt="Logo de EscobARQ" class="logoDimension">
+                </div>
+                <div class="bannerAncho">
+                    <h1 style="margin: 0;">EscobARQ Soluciones Integrales</h1>
+                    <nav>
+                        <ul style="margin: 0; padding: 0; list-style: none;">
+                            <li style="display: inline; margin-right: 15px;"><a href="index.html">Inicio</a></li>
+                            <li style="display: inline; margin-right: 15px;"><a href="servicios.html">Servicios</a></li>
+                            <li style="display: inline; margin-right: 15px;"><a href="proyectos.html">Proyectos</a></li>
+                            <li style="display: inline; margin-right: 15px;"><a href="pqrs.html">PQRS</a></li>
+                            <li style="display: inline; margin-right: 15px;"><a href="contacto.html">Contacto</a></li>
+                            <li style="display: inline; margin-right: 15px;"><a href="gestor.html">Login</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section class="banner">
+                <h2>PROYECTOS</h2>
+                <p>Somos reconocidos a nivel nacional por nuestos proyectos gubernamentales y del sector salud</p>
+            </section>
+            <section>
+
+                <div class="slider-container">
+                    <div class="slider">
+                        <div class="slide fade" id="slide1">
+                            <img src="img/proyecto/campin.jpg" alt="Complejo deportivo y cultural El Campin">
+                            <p class="description">El Estadio Nemesio Camacho El Campín, ​ conocido simplemente como El Campín, es el estadio de fútbol más grande de Bogotá, ubicado en la localidad de Teusaquillo, centro-occidente de la capital de Colombia.</p>
+                        </div>
+                        <div class="slide fade" id="slide2">
+                            <img src="img/proyecto/dorado.jpg" alt="Aeropuerto Internacional El Dorado">
+                            <p class="description">El Aeropuerto Internacional El Dorado Luis Carlos Galán Sarmiento, más conocido como Aeropuerto El Dorado, es el principal aeropuerto de Colombia y América Latina</p>
+                        </div>
+                        <div class="slide fade" id="slide3">
+                            <img src="img/proyecto/hidrohituango.jpg" alt="Proyecto hidrohituango">
+                            <p class="description">Proyecto hidroeléctrico en el Cañón del Río Cauca, en Colombia, que busca generar energía limpia y sostenible</p>
+                        </div>
+                        <div class="slide fade" id="slide4">
+                            <img src="img/proyecto/metro.jpg" alt="Metro de Medellín">
+                            <p class="description">El Tren metropolitano del Valle de Aburrá, conocido como Metro de Medellín, es el sistema de transporte ferroviario urbano del tipo metro del área metropolitana del Valle de Aburrá en Antioquia</p>
+                        </div>
+                        <div class="slide fade" id="slide5">
+                            <img src="img/proyecto/puente.jpg" alt="Puente Alberto Pumarejo">
+                            <p class="description">Puente Alberto Pumarejo, es una obra de infraestructura civil pública sobre el río Magdalena a 20 km de su desembocadura en el mar</p>
+                        </div>
+
+                    </div>
+                    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                    <button class="next" onclick="changeSlide(1)">&#10095;</button>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>Contacto: samitolrmc@gmail.com | WhatsApp:3122328116| Villavicencio - Meta</p>
+            <p>&copy; 2025 EscobARQ | Todos los derechos reservados</p>
+        </footer>
+    </div>
+    <script src="js/funciones.js"></script>
+</body>
+
+</html>

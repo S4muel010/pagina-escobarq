@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario PQRS - EscobARQ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <div class="contenedor-principal">
+                <header>
+            <div class="logo">
+                <div class="logoAncho">
+                    <img src="img/logo.png" alt="Logo de EscobARQ" class="logoDimension">
+                </div>
+                <div class="bannerAncho">
+                    <h1 style="margin: 0;">EscobARQ Soluciones Integrales</h1>
+                    <nav>
+                        <ul style="margin: 0; padding: 0; list-style: none;">
+                            <li style="display: inline; margin-right: 15px;"><a href="index.html">Inicio</a></li>
+                            <li style="display: inline; margin-right: 15px;"><a href="servicios.html">Servicios</a></li>
+                            <li style="display: inline; margin-right: 15px;"><a href="proyectos.html">Proyectos</a></li>
+                            <li style="display: inline; margin-right: 15px;"><a href="pqrs.html">PQRS</a></li>
+                            <li style="display: inline; margin-right: 15px;"><a href="contacto.html">Contacto</a></li>
+                            <li style="display: inline; margin-right: 15px;"><a href="gestor.html">Login</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section class="banner">
+                <h2>Formulario de PQRS</h2>
+                <p>Cuéntanos tu petición, queja, reclamo o sugerencia</p>
+            </section>
+
+            <section class="form-section">
+                <form id="formPQRS" class="formulario">
+                    <div class="campo">
+                        <label for="nombre">Nombre completo:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="campo">
+                        <label for="correo">Correo electrónico:</label>
+                        <input type="email" id="correo" name="correo" required>
+                    </div>
+                    <div class="campo">
+                        <label for="telefono">Teléfono (opcional):</label>
+                        <input type="tel" id="telefono" name="telefono">
+                    </div>
+                    <div class="campo">
+                        <label for="tipo">Tipo de solicitud:</label>
+                        <select id="tipo" name="tipo" required>
+                            <option value="">Seleccione una opción</option>
+                            <option value="peticion">Petición</option>
+                            <option value="queja">Queja</option>
+                            <option value="reclamo">Reclamo</option>
+                            <option value="sugerencia">Sugerencia</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                    </div>
+                    <div class="campo">
+                        <button type="submit">Enviar PQRS</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Modal de confirmación -->
+            <div id="modal" class="modal">
+                <div class="modal-contenido">
+                    <p id="modal-mensaje"></p>
+                    <button id="cerrarModal">Cerrar</button>
+                </div>
+            </div>
+
+        </main>
+
+        <footer>
+            <p>Contacto: samitolrmc@gmail.com | WhatsApp: 3122328116 | Villavicencio - Meta</p>
+            <p>&copy; 2025 EscobARQ | Todos los derechos reservados</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const formPQRS = document.getElementById("formPQRS");
+            const modal = document.getElementById("modal");
+            const mensaje = document.getElementById("modal-mensaje");
+            const cerrarBtn = document.getElementById("cerrarModal");
+
+            // Función para generar código aleatorio
+            function generarCodigoPQRS() {
+                const numero = Math.floor(1000000 + Math.random() * 9000000);
+                return "PQRS" + numero;
+            }
+
+            if (formPQRS && modal && mensaje && cerrarBtn) {
+                formPQRS.addEventListener("submit", function (e) {
+                    e.preventDefault();
+
+                    const codigo = generarCodigoPQRS();
+                    mensaje.textContent = `Su solicitud ha sido registrada con el código: ${codigo}`;
+                    modal.style.display = "block";
+                    formPQRS.reset();
+                });
+
+                cerrarBtn.addEventListener("click", function () {
+                    modal.style.display = "none";
+                });
+            }
+        });
+    </script>
+</body>
+</html>
