@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Clientes</title>
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <link rel="stylesheet" href="css/estilo.css" />
+</head>
+
+<script>
+  if (!sessionStorage.getItem("usuarioLogueado")) {
+    alert("Debes iniciar sesión primero");
+    window.location.href = "gestor.html";
+  }
+</script>
+
+<body>
+  <div class="contenedor-principal">
+    <header>
+      <div class="logo">
+        <div class="logoAncho">
+          <img src="img/logo.png" alt="Logo de EscobARQ" class="logoDimension" />
+        </div>
+        <div class="bannerAncho">
+          <h1 style="margin: 0;">EscobARQ Soluciones Integrales</h1>
+          <nav>
+            <ul style="margin: 0; padding: 0; list-style: none;">
+              <li style="display: inline; margin-right: 15px;"><a href="index.html">Inicio</a></li>
+              <li style="display: inline; margin-right: 15px;"><a href="servicios.html">Servicios</a></li>
+              <li style="display: inline; margin-right: 15px;"><a href="proyectos.html">Proyectos</a></li>
+              <li style="display: inline; margin-right: 15px;"><a href="pqrs.html">PQRS</a></li>
+              <li style="display: inline; margin-right: 15px;"><a href="contacto.html">Contacto</a></li>
+              <li style="display: inline; margin-right: 15px;"><a href="gestor.html">Login</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <div class="admin-panel">
+      <h2>Registrar nuevo cliente</h2>
+      <form id="clienteForm">
+        <input type="text" id="cedula" name="cedula" placeholder="Cédula" required><br>
+        <input type="text" id="nombre" name="nombre" placeholder="Nombres y Apellidos" required><br>
+        <input type="email" id="correo" name="correo" placeholder="Correo"><br>
+        <select id="tipo" name="tipo">
+          <option value="Nuevo">Nuevo</option>
+          <option value="Casual">Casual (5%)</option>
+          <option value="Permanente">Permanente (10%)</option>
+        </select><br>
+        <button type="submit">Guardar</button>
+      </form>
+    </div>
+
+    <div class="admin-table-container">
+      <div id="tablaClientes"></div>
+    </div>
+
+
+    <script>
+      const clienteForm = document.getElementById('clienteForm');
+      const tablaClientes = document.getElementById('tablaClientes');
+
+      // Mostrar clientes al cargar la página
+      mostrarClientes();
+
+      clienteForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const cedula = document.getElementById('cedula').value.trim();
+        const nombre = document.getElementById('nombre').value.trim();
+        const correo = document.getElementById('correo').value.trim();
+        const tipo = document.getElementById('tipo').value;
+
+        if (!cedula || !nombre) {
+          alert("Por favor, completa los campos obligatorios.");
+          return;
+        }
+
+        const data = { cedula, nombre, correo, tipo };
+        let clientes = JSON.parse(localStorage.getItem('clientes')) || [];
+
+        if (clientes.some(c => c.cedula === cedula)) {
+          alert("Ya existe un cliente con esa cédula.");
+          return;
+        }
+
+        clientes.push(data);
+        localStorage.setItem('clientes', JSON.stringify(clientes));
+        alert("Cliente registrado correctamente.");
+        clienteForm.reset();
+        mostrarClientes();
+      });
+
+      function mostrarClientes() {
+        const clientes = JSON.parse(localStorage.getItem('clientes')) || [];
+
+        if (clientes.length === 0) {
+          tablaClientes.innerHTML = "<p>No hay clientes registrados.</p>";
+          return;
+        }
+
+        let tabla = `<table class="admin-table">
+  <thead>
+            <tr>
+          <th colspan="5">
+            <h2 style="margin: 0;">Lista de Clientes</h2>
+          </th>
+        </tr>
+    <tr>
+      <th>Cédula</th>
+      <th>Nombre</th>
+      <th>Correo</th>
+      <th>Tipo</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>`;
+
+
+        clientes.forEach((cliente, index) => {
+          tabla += `
+            <tr>
+              <td>${cliente.cedula}</td>
+              <td>${cliente.nombre}</td>
+              <td>${cliente.correo}</td>
+              <td>${cliente.tipo}</td>
+<td>
+  <button class="edit-btn" onclick="editarCliente(${index})">Editar</button>
+  <button class="delete-btn" onclick="eliminarCliente(${index})">Eliminar</button>
+</td>
+
+            </tr>`;
+        });
+
+        tabla += `</tbody></table>`;
+
+        tablaClientes.innerHTML = tabla;
+      }
+
+      function eliminarCliente(index) {
+        const clientes = JSON.parse(localStorage.getItem('clientes')) || [];
+        if (confirm("¿Estás seguro de eliminar este cliente?")) {
+          clientes.splice(index, 1);
+          localStorage.setItem('clientes', JSON.stringify(clientes));
+          mostrarClientes();
+        }
+      }
+
+      function editarCliente(index) {
+        const clientes = JSON.parse(localStorage.getItem('clientes')) || [];
+        const cliente = clientes[index];
+
+        document.getElementById('cedula').value = cliente.cedula;
+        document.getElementById('nombre').value = cliente.nombre;
+        document.getElementById('correo').value = cliente.correo;
+        document.getElementById('tipo').value = cliente.tipo;
+
+        // Elimina el cliente viejo para poder actualizar luego
+        clientes.splice(index, 1);
+        localStorage.setItem('clientes', JSON.stringify(clientes));
+        mostrarClientes();
+      }
+    </script>
+    <footer>
+      <p>Contacto: samitolrmc@gmail.com | WhatsApp:3122328116| Villavicencio - Meta</p>
+      <p>&copy; 2025 EscobARQ | Todos los derechos reservados</p>
+    </footer>
+  </div>
+</body>
+
+</html>

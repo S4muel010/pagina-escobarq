@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+h2 {
+    text-align: center;
+    margin-top: 40px;
+}
+
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
@@ -11,7 +17,8 @@ body {
     line-height: 1.6;
 }
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -288,7 +295,8 @@ footer {
     font-size: 14px;
 }
 
-.prev, .next {
+.prev,
+.next {
     position: absolute;
     top: 50%;
     z-index: 2;
@@ -309,7 +317,8 @@ footer {
     right: 10px;
 }
 
-.prev:hover, .next:hover {
+.prev:hover,
+.next:hover {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -320,7 +329,7 @@ footer {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .formulario .campo {
@@ -388,14 +397,14 @@ footer {
 
 .formulario-contacto input:focus,
 .formulario-contacto textarea:focus {
-    border-color: #007BFF;
+    border-color: #007bff;
     outline: none;
-    box-shadow: 0 0 4px #007BFF33;
+    box-shadow: 0 0 4px #007bff33;
 }
 
 .formulario-contacto button {
     margin-top: 20px;
-    background-color: #007BFF;
+    background-color: #007bff;
     color: white;
     padding: 12px;
     font-size: 16px;
@@ -413,4 +422,213 @@ footer {
     font-weight: bold;
     text-align: center;
     margin-top: 15px;
+}
+
+/* admin */
+/* === PANEL DE ADMINISTRACIÓN === */
+.admin-panel {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.admin-panel h2 {
+    text-align: center;
+    color: #003366;
+    margin-bottom: 30px;
+}
+
+.admin-panel form {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-panel label {
+    font-weight: bold;
+    margin: 15px 0 5px;
+    color: #333;
+}
+
+.admin-panel input[type="text"],
+.admin-panel textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    resize: vertical;
+}
+
+.admin-panel textarea {
+    min-height: 150px;
+}
+
+.admin-panel input:focus,
+.admin-panel textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.admin-panel button {
+    margin-top: 25px;
+    background-color: #003366;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.admin-panel button:hover {
+    background-color: #002244;
+}
+
+.admin-panel input[type="text"],
+.admin-panel input[type="email"],
+.admin-panel select,
+.admin-panel textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    resize: vertical;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.admin-panel input[type="email"],
+.admin-panel select {
+    appearance: none;
+    /* para quitar estilos nativos */
+    background-color: #fff;
+}
+
+.admin-panel input:focus,
+.admin-panel textarea:focus,
+.admin-panel select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* Table de clientes */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    font-size: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.admin-table th {
+    background-color: #003366;
+    color: white;
+}
+
+.admin-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.admin-table tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.admin-table .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.admin-table .actions button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.admin-table .actions .edit-btn {
+    background-color: #ffc107;
+    color: black;
+}
+
+.admin-table .actions .delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.admin-table .actions button:hover {
+    opacity: 0.85;
+}
+
+.admin-table-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.admin-table {
+    border-collapse: collapse;
+    width: 90%;
+    max-width: 900px;
+    font-family: Arial, sans-serif;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.admin-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.admin-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 6px 12px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.edit-btn {
+    background-color: #ffc106;
+    color: #000;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
 }
