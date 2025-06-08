@@ -449,8 +449,8 @@ footer {
 
 .admin-panel label {
     font-weight: bold;
-    margin: 15px 0 5px;
-    color: #333;
+    margin: 7px 0 7px;
+    color: #696767;
 }
 
 .admin-panel input[type="text"],
@@ -518,117 +518,120 @@ footer {
     outline: none;
 }
 
-/* Table de clientes */
+
+/* Estilos para la tabla de clientes */
 .admin-table {
+    overflow-x: auto;
+}
+
+.admin-table table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 30px;
-    font-size: 15px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.admin-table th,
-.admin-table td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
-.admin-table th {
-    background-color: #003366;
-    color: white;
-}
-
-.admin-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.admin-table tr:hover {
-    background-color: #f1f1f1;
-    cursor: pointer;
-}
-
-.admin-table .actions {
-    display: flex;
-    gap: 10px;
-}
-
-.admin-table .actions button {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.admin-table .actions .edit-btn {
-    background-color: #ffc107;
-    color: black;
-}
-
-.admin-table .actions .delete-btn {
-    background-color: #dc3545;
-    color: white;
-}
-
-.admin-table .actions button:hover {
-    opacity: 0.85;
-}
-
-.admin-table-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.admin-table {
-    border-collapse: collapse;
-    width: 90%;
-    max-width: 900px;
-    font-family: Arial, sans-serif;
-    text-align: left;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.admin-table th,
-.admin-table td {
-    padding: 10px 15px;
-    border-bottom: 1px solid #ddd;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .admin-table th {
     background-color: #007bff;
     color: white;
+    padding: 12px;
+    text-align: center;
 }
 
-.admin-table tr:nth-child(even) {
+.admin-table td {
     background-color: #f9f9f9;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
 }
 
-.edit-btn,
-.delete-btn {
-    padding: 6px 12px;
-    margin-right: 5px;
-    border: none;
-    border-radius: 6px;
+.admin-table tr:hover td {
+    background-color: #e6f0ff;
+}
+
+/* Acciones */
+.admin-table .acciones a {
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin: 0 2px;
     font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-.edit-btn {
-    background-color: #ffc106;
-    color: #000;
+.admin-table .acciones button.eliminar {
+    text-decoration: none;
+    padding: 7px 10px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    margin: 0 4px;
+    font-size: 14px;
 }
 
-.delete-btn {
+.admin-table .acciones a.editar {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.admin-table .acciones button.eliminar {
     background-color: #dc3545;
-    color: #fff;
+    color: white;
 }
 
-.edit-btn:hover,
-.delete-btn:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
+.admin-table .acciones button:hover {
+    opacity: 0.85;
+}
+
+.admin-table .acciones a:hover {
+    opacity: 0.85;
+}
+
+.form-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Clase aplicada únicamente a la etiqueta de "fecha de nacimiento" */
+.etiqueta-fecha {
+    font-weight: 600;
+    color: #555;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Solo afecta el input de fecha */
+.input-fecha {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+    color: #333;
+    font-size: 14px;
+}
+
+/* Ajuste al texto interno del campo de fecha (solo navegadores WebKit) */
+.input-fecha::-webkit-datetime-edit {
+    color: #999;
+}
+
+.input-estandar {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    font-family: inherit;
 }
